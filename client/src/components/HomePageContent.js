@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import styled from "styled-components";
 
 const HomePageContainer = styled(Container)`
+    min-height: 65vh;
     padding: 48px;
     align-self: stretch;
     display: flex;
