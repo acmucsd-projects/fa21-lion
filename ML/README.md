@@ -3,7 +3,7 @@
 [![Python](https://img.shields.io/badge/Python-3.7-002c5c?logo=python&labelColor=002c5c)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/Pytorch-1.1-ffffff?logo=pytorch&labelColor=ffffff)](https://pytorch.org/)
 [![Kaggle](https://img.shields.io/badge/Kaggle-ffffff?logo=kaggle&labelColor=ffffff)](https://www.kaggle.com/)
-[![Google Colab](https://img.shields.io/badge/Google Colab-ffffff?logo=googlecolab&labelColor=ffffff)](https://colab.research.google.com/)
+[![Google Colab](https://img.shields.io/badge/Google-Colab-ffffff?logo=googlecolab&labelColor=ffffff)](https://colab.research.google.com/)
 
 ## Table of Contents:
 - [Datasets](https://github.com/acmucsd-projects/fa21-lion/blob/main/README.md#datasets)
