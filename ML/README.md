@@ -6,10 +6,10 @@
 [![Google Colab](https://img.shields.io/badge/Google%20Colab-ffffff?logo=googlecolab&labelColor=ffffff)](https://colab.research.google.com/)
 
 ## Table of Contents:
-- [Datasets](https://github.com/acmucsd-projects/fa21-lion/blob/main/README.md#datasets)
-- [Difficulties](https://github.com/acmucsd-projects/fa21-lion/blob/main/README.md#difficulties)
-- [Author Info](https://github.com/acmucsd-projects/fa21-lion/blob/main/README.md#author-info)
-- [Thank you!](https://github.com/acmucsd-projects/fa21-lion/blob/main/README.md#thank-you)
+- [Datasets](https://github.com/acmucsd-projects/fa21-lion/tree/ML-setup/ML#datasets)
+- [Difficulties](https://github.com/acmucsd-projects/fa21-lion/tree/ML-setup/ML#difficulties)
+- [Author Info](https://github.com/acmucsd-projects/fa21-lion/tree/ML-setup/ML#author-info)
+- [Thank you!](https://github.com/acmucsd-projects/fa21-lion/tree/ML-setup/ML#thank-you)
 
 ## Datasets
 
