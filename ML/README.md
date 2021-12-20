@@ -9,7 +9,6 @@
 - [Datasets](https://github.com/acmucsd-projects/fa21-lion/blob/main/README.md#datasets)
 - [Difficulties](https://github.com/acmucsd-projects/fa21-lion/blob/main/README.md#difficulties)
 - [Author Info](https://github.com/acmucsd-projects/fa21-lion/blob/main/README.md#author-info)
-- [Credits](https://github.com/acmucsd-projects/fa21-lion/blob/main/README.md#credits)
 - [Thank you!](https://github.com/acmucsd-projects/fa21-lion/blob/main/README.md#thank-you)
 
 ## Datasets
@@ -31,11 +30,6 @@
 - [Vincent Tu](https://github.com/alckasoc)
 - [Arth Shukla](https://github.com/arth-shukla)
 - [Tarun Murugan](https://github.com/tarunm20)
-- [Edward Yang (Advisor)](https://www.linkedin.com/in/~edwardyang/)
-
-## Credits
-
-- [Banner maker](https://github.com/banner-maker/banner-maker) for creating the banner for this README.
-- []()
+- [Edward Yang](https://www.linkedin.com/in/~edwardyang/) (Advisor)
 
 ## Thank you!
