@@ -26,6 +26,11 @@
 
 All logs, metrics, results, samples, and model weight files are kept on my (Vincent) wandb project [here](https://wandb.ai/vincenttu/DCGAN_TL2021?workspace=user-vincenttu).
 
+![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/img/OIP.jfif?raw=true)
+
+![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/img/wandb_showcase.gif?raw=true)
+
+
 ## Difficulties ❌
 
   There are a number of difficulties. Our objective of converting human faces to cat faces (ideally with an additional argument specifying how much to morph the human face) proves to be difficult. This task is not paired image translation. Morphing the structure of the human face and incorporating cat elements where appropriate is more so geometric transfiguration. Other difficulties included the traditional GAN issues such as instability, oscillation (lack of convergence), failure to learn, and learning static images to fool the discriminator. Our difficulties also entailed long training runs and organizing experiments.
