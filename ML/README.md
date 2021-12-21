@@ -7,6 +7,7 @@
 
 ## Table of Contents:
 - [Datasets](https://github.com/acmucsd-projects/fa21-lion/tree/ML-setup/ML#datasets)
+- [Logging](https://github.com/acmucsd-projects/fa21-lion/tree/ML-setup/ML#logging)
 - [Difficulties](https://github.com/acmucsd-projects/fa21-lion/tree/ML-setup/ML#difficulties)
 - [Author Info](https://github.com/acmucsd-projects/fa21-lion/tree/ML-setup/ML#author-info)
 - [Thank you!](https://github.com/acmucsd-projects/fa21-lion/tree/ML-setup/ML#thank-you)
@@ -20,6 +21,10 @@
 - [celeba](https://www.kaggle.com/zuozhaorui/celeba) by Zhuo Zhaorui
 - [FFHQ Face Data Set](https://www.kaggle.com/greatgamedota/ffhq-face-data-set) by GreatGameDota (ported from NVLabs)
 - [celeba-hq](https://www.kaggle.com/lamsimon/celebahq) by Lam Simon
+
+## Logging
+
+All logs, metrics, results, samples, and model weight files are kept on my (Vincent) wandb project [here](https://wandb.ai/vincenttu/DCGAN_TL2021?workspace=user-vincenttu).
 
 ## Difficulties
 
