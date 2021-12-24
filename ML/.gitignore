@@ -1,1 +1,11 @@
 models/
+src/.ipynb_checkpoints/
+input/celeba/
+input/fferlito_cat_faces/
+input/larxel_cat_faces/
+input/mini_ffhq_1024/
+input/mini_ffhq_512/
+input/spandan_cat_faces/
+input/waifuai_cat_faces/
+input/mini_ffhq_512.zip
+input/larxel_cat_faces.zip
