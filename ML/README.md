@@ -6,11 +6,41 @@
 [![Google Colab](https://img.shields.io/badge/Google%20Colab-ffffff?logo=googlecolab&labelColor=ffffff)](https://colab.research.google.com/)
 
 ## Table of Contents:
+- [Requirements](https://github.com/acmucsd-projects/fa21-lion/tree/ML-setup/ML#requirements)
+- [Source](https://github.com/acmucsd-projects/fa21-lion/tree/ML-setup/ML#source)
 - [Datasets](https://github.com/acmucsd-projects/fa21-lion/tree/ML-setup/ML#datasets)
 - [Logging](https://github.com/acmucsd-projects/fa21-lion/tree/ML-setup/ML#logging)
 - [Difficulties](https://github.com/acmucsd-projects/fa21-lion/tree/ML-setup/ML#difficulties)
 - [Author Info](https://github.com/acmucsd-projects/fa21-lion/tree/ML-setup/ML#author-info)
 - [Thank you!](https://github.com/acmucsd-projects/fa21-lion/tree/ML-setup/ML#thank-you)
+
+## Requirements ‼️
+
+Refer to `requirements.txt` for the packages and dependencies. Note: `requirements.txt` was created via the command:
+
+```cmd
+!pip freeze > requirements.txt
+```
+
+within a *Colab* environment. Ensure you have a **Google account** —for experiment tracking of StyleGAN scripts. Ensure you have a Wandb account.
+**Wandb** is another critical tool for our projects as it is used as an experiment tracker, a logger, and an artifact storage for our 
+model weights and test runs. We also utilize **Kaggle** for creating, managing, and using datasets. Some of our files require a Kaggle account 
+and an uploaded Kaggle.json API key for Kaggle datasets to download. 
+
+Hardware-wise, a **Tesla P100** (offered in the Colab Pro subscription) is sufficient. There is an exception, however. Training StyleGAN requires heavy computational
+power. Thus, a stronger GPU would be encouraged.
+
+## Source 💡
+
+Our source files are all written in python. However, the source files were originally executed in different environments. 
+Below is a table indicating where the src file was ran for best convenience.
+
+| src file                        | Kaggle             | Colab              | Local              |
+| :-----------------------------: | :----------------: | :----------------: | :----------------: |
+| DCGAN_TL2021.ipynb              | :x:                | :heavy_check_mark: | :x:                |
+| morph_human_to_cat.ipynb        | :x:                | :heavy_check_mark: | :x:                |
+| preprocess_mini_ffhq_1024.ipynb | :x:                | :x:                | :heavy_check_mark: |
+| pretrained_StyleGAN.ipynb       | :x:                | :heavy_check_mark: | :x:                |
 
 ## Datasets 🗃️
 
