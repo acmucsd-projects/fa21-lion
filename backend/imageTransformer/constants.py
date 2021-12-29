@@ -1,12 +1,19 @@
-class SessionKeys:
-    currentUsername = 'currentUsername'
+class SESSION_KEYS:
+    CURRENT_USERNAME = 'currentUsername'
 
-class UserDocumentKeys:
-    fullname ='fullname'
-    username = 'username'
-    passwordHash = 'passwordHash'
+class USER_DOCUMENT_KEYS:
+    FULLNAME ='fullname'
+    USERNAME = 'username'
+    PASSWORD_HASH = 'passwordHash'
+    IMAGES = 'images'
+    FILENAME = 'filename'
+    TRANSFORMED = 'transformed'
 
-class RequestKeys:
-    username = 'username'
-    fullname = 'fullname'
-    password = 'password'
+class REQUEST_KEYS:
+    USERNAME = 'username'
+    FULLNAME = 'fullname'
+    PASSWORD = 'password'
+    IMAGE = 'image'
+
+TRANSFORMED_FILE_PREFIX = 'transformed-'
+ALLOWED_EXTENSIONS = ['png', 'jpg', 'jpeg', 'gif']

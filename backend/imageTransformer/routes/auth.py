@@ -2,7 +2,8 @@ from flask import request, jsonify, session
 from imageTransformer.models import User
 
 from imageTransformer.app import app
-from imageTransformer.constants import RequestKeys
+from imageTransformer.constants import REQUEST_KEYS
+from imageTransformer.routes.helpers import getMissingArgs
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -10,12 +11,13 @@ def login():
     if not request.headers.get('Content-Type') == 'application/json':
         return jsonify({'msg': f'Expected json content type but found {request.headers.get("Content-Type")}'}), 400
 
-    username = request.json.get(RequestKeys.username)
-    password = request.json.get(RequestKeys.password)
+    # Verify required arguments
+    missingArgs = getMissingArgs(request.json, [REQUEST_KEYS.USERNAME, REQUEST_KEYS.PASSWORD])
+    if missingArgs:
+        return jsonify({'msg': f'Missing required argument(s): {", ".join(missingArgs)}'}), 400
     
-    # Verify username and password are provided
-    if not username or not password:
-        return jsonify({'msg': 'Username or/and password is missing'}), 400
+    username = request.json.get(REQUEST_KEYS.USERNAME)
+    password = request.json.get(REQUEST_KEYS.PASSWORD)
     
     status, message, tokens = User.login(username, password)
 
@@ -32,13 +34,14 @@ def register():
     if not request.headers.get('Content-Type') == 'application/json':
         return jsonify({'msg': f'Expected json content type but found {request.headers.get("Content-Type")}'}), 400
     
-    fullname = request.json.get(RequestKeys.fullname)
-    username = request.json.get(RequestKeys.username)
-    password = request.json.get(RequestKeys.password)
-
-    # Verfy all fields are provided
-    if not username or not fullname or not password:
-        return jsonify({'msg': 'All required fields were not provided for account creation'}), 400
+    # Verify required arguments
+    missingArgs = getMissingArgs(request.json, [REQUEST_KEYS.FULLNAME, REQUEST_KEYS.USERNAME, REQUEST_KEYS.PASSWORD])
+    if missingArgs:
+        return jsonify({'msg': f'Missing required argument(s): {", ".join(missingArgs)}'}), 400
+    
+    fullname = request.json.get(REQUEST_KEYS.FULLNAME)
+    username = request.json.get(REQUEST_KEYS.USERNAME)
+    password = request.json.get(REQUEST_KEYS.PASSWORD)
 
     status, message = User.register(fullname, username, password)
     return jsonify({'msg': message}), status
