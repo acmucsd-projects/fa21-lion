@@ -1,3 +1,6 @@
+# Useful resources
+- API Documentation: [here](https://documenter.getpostman.com/view/18831621/UVRGF4Pi)
+- Backend Plan Doc: [here](https://docs.google.com/document/d/1xH0LKhaQSp-aiNjJPbK_I6Zl_LmEJh32MQlc6zEkXpk/edit)
 # How to run the backend locally?
 
 ## For MacOS
@@ -17,3 +20,5 @@ python3 -m pip install -r requirements.txt
 Feel free to reach out to Aman in case you find it hard to get the local backend up and running. 
 
 Please refer to [this](https://docs.google.com/document/d/1xH0LKhaQSp-aiNjJPbK_I6Zl_LmEJh32MQlc6zEkXpk/edit?usp=sharing) google doc for the backend plan
+
+
