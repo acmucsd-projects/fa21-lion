@@ -41,6 +41,8 @@ Below is a table indicating where the src file was ran for best convenience.
 | morph_human_to_cat.ipynb        | :x:                | :heavy_check_mark: | :x:                |
 | preprocess_mini_ffhq_1024.ipynb | :x:                | :x:                | :heavy_check_mark: |
 | pretrained_StyleGAN.ipynb       | :x:                | :heavy_check_mark: | :x:                |
+| stylegan2_ada_train.ipynb       | :x:                | :heavy_check_mark: | :x:                |
+
 
 ## Datasets 🗃️
 
