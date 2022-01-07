@@ -20,15 +20,15 @@ import glob
 import cv2
 import numpy as np
 from PIL import Image
-import dlib
 import torch
-import dnnlib
-import legacy
 import imageio
 
+import dlib
+import dnnlib
+import legacy
+
 import config
-from predict.config import FREEZE_STEPS
-from utils import crop_stylegan
+from utils import crop_stylegan, skipped_frames_by_step_num
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -44,6 +44,7 @@ TARGET_NAME = args.target
 
 NETWORK = config.NETWORK
 STEPS = config.STEPS
+SKIPPED_FRAME_CAP = config.SKIPPED_FRAME_CAP
 FPS = config.FPS
 FREEZE_STEPS = config.FREEZE_STEPS
 NUM_STEPS = config.NUM_STEPS
@@ -111,9 +112,16 @@ for j in range(STEPS):
   synth_image = synth_image.permute(0, 2, 3, 1).clamp(0, 255).to(torch.uint8)[0].cpu().numpy()
 
   repeat = FREEZE_STEPS if j==0 or j==(STEPS-1) else 1
+
+  skip_frames = skipped_frames_by_step_num(j, STEPS, SKIPPED_FRAME_CAP)
    
-  for i in range(repeat):
-    video.append_data(synth_image)
+  if (repeat == 1 and skip_frames > 0):
+    if (j % skip_frames == 0):
+      video.append_data(synth_image)
+  else:
+    for i in range(repeat):
+      video.append_data(synth_image)
+  
   current = current + step
 
 video.close()

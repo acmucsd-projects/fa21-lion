@@ -2,6 +2,7 @@ import torch
 
 NETWORK = "./network-snapshot.pkl"
 STEPS = 600
+SKIPPED_FRAME_CAP = 10
 FPS = 30
 FREEZE_STEPS = 30
 NUM_STEPS = 1000

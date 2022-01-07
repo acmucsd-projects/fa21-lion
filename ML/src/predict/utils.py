@@ -1,3 +1,4 @@
+import math
 import cv2
 
 def find_eyes(img, detector, predictor):
@@ -41,3 +42,9 @@ def crop_stylegan(img, detector, predictor):
   crop1 = left_eye2[0] - 385 
   crop0 = left_eye2[1] - 490
   return img3[crop0:crop0+1024,crop1:crop1+1024]
+
+def skipped_frames_by_step_num(step_num, steps, max_skip):
+  power = ((3 * max_skip) / steps) * (step_num - (steps / 2))
+  function = (4 * max_skip) * ((-1 * math.exp(power)) / ((1 + math.exp(power)) ** 2)) + max_skip
+  
+  return math.floor(function)
