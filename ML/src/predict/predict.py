@@ -16,6 +16,7 @@ sys.path.insert(0, "/content/stylegan2-ada-pytorch")
 import argparse
 import subprocess
 import os
+import glob
 import cv2
 import numpy as np
 from PIL import Image
@@ -36,20 +37,10 @@ warnings.filterwarnings("ignore")
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument("--source", default="", type=str, required=True)
 parser.add_argument("--target", default="", type=str, required=True)
-parser.add_argument("--storagedir", default="", type=str, required=True)
-parser.add_argument("--stylegan2dir", default="", type=str, required=True)
-parser.add_argument("--outsource", default="", type=str, required=True)
-parser.add_argument("--outtarget", default="", type=str, required=True)
-parser.add_argument("--mp4dir", default="", type=str, required=True)
 args = parser.parse_args()
 
 SOURCE_NAME = args.source
 TARGET_NAME = args.target
-STORAGE_DIR = args.storagedir
-STYLEGAN2DIR = args.stylegan2dir
-OUT_SOURCE = args.outsource
-OUT_TARGET = args.outtarget
-MP4_DIR = args.mp4dir
 
 NETWORK = config.NETWORK
 STEPS = config.STEPS
@@ -58,12 +49,16 @@ FREEZE_STEPS = config.FREEZE_STEPS
 NUM_STEPS = config.NUM_STEPS
 SAVE_VIDEO = config.SAVE_VIDEO
 DEVICE = config.DEVICE
+STORAGE_DIR = config.STORAGE_DIR
+OUT_SOURCE = config.PROJECTED_DIR["source"]
+OUT_TARGET = config.PROJECTED_DIR["target"]
+MP4_DIR = config.MP4_DIR
+
 
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor('shape_predictor_5_face_landmarks.dat')
 
 
-# Checks.
 image_source = cv2.imread(SOURCE_NAME)
 image_target = cv2.imread(TARGET_NAME)
 
@@ -81,7 +76,7 @@ cv2.imwrite(cropped_target_path, cropped_target)
 
 
 # Extracting projections.
-projector_path = os.path.join(STYLEGAN2DIR, "projector.py")
+projector_path = os.path.join("./stylegan2-ada", "projector.py")
 
 p1 = subprocess.run(["python", projector_path, f"--save-video {SAVE_VIDEO}", f"--num-steps {NUM_STEPS}", f"--outdir={OUT_SOURCE}", 
                      f"--target={cropped_source_path}", f"--network={NETWORK}"])
@@ -122,3 +117,19 @@ for j in range(STEPS):
   current = current + step
 
 video.close()
+
+
+# Clean-up.
+for file in glob.glob("./raw_images/*"):
+    os.remove(file)
+
+for file in glob.glob("./aligned_images/*"):
+    os.remove(file)
+  
+for file in glob.glob("./projected/source/*"):
+    os.remove(file)
+
+for file in glob.glob("./projected/target/*"):
+    os.remove(file)
+
+# We need a separate call to clear out the output.
