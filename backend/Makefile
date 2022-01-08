@@ -1,10 +1,8 @@
-start-mongo-db:
+local-start-mongo-db:
 	brew services restart mongodb-community
 
-stop-mongo-db:
+local-stop-mongo-db:
 	brew services stop mongodb-community
 
-run-server: 
+run-backend: 
 	python3 run.py
-
-run-app: start-mongo-db run-server
