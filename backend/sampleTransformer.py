@@ -1,6 +1,8 @@
 # TODO Remove this mock transformer before merging
 
-import random
+import os
+import shutil
+import time
 
 from typing import *
 
@@ -8,5 +10,7 @@ def filler(str, req):
     return '0' * (req - len(str)) + str
 
 def transform(image) -> Tuple[bool, object]:
-    filename = f'{filler(str(random.randint(5000, 5050)), 5)}.png'
-    return True, open(f'sampleImages/{filename}', 'rb')
+    temp_filepath = 'temp/finalVideo.mp4'
+    shutil.copyfile('sample/4920.mp4', temp_filepath)
+    time.sleep(5) # Added to imitate the real behaviour
+    return True, temp_filepath

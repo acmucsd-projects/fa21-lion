@@ -1,1 +1,0 @@
-Images added just for backend testing. This directory will be removed before merging
