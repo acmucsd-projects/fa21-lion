@@ -3,6 +3,8 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 
+import api
+
 # Page Configuration
 st.set_page_config(page_title="Team Lion", layout="wide")
 
@@ -70,6 +72,7 @@ def main():
   # If Picture Uploaded, display picture and button to morph the picture.
   if isPictureUploaded:
     row2_spacer5, row2_3, row2_spacer8 = st.columns([1,1,1])
+    print(uploaded_file)
     img = Image.open(uploaded_file)
     row2_3.image(img)
     row2_spacer6, row2_spacer9, row2_spacer11, row2_spacer13, row2_spacer14, row2_spacer17, row2_4, row2_spacer18, row2_spacer15, row2_spacer16, row2_spacer12, row2_spacer6, row2_spacer7 = st.columns([1,1,1,1,1,1,1,1,1,1,1,1,1])
@@ -84,17 +87,15 @@ def main():
     # '''
     # This is where the uploaded_file is sent to the GAN and the GAN runs it to return the video.
 
-    # morphed_video = run_gan(uploaded_file)
+    morphed_video = api.transformImage(uploaded_file)
 
     # !!! DELETE NEXT LINE - ONLY FOR REFERENCE !!!
 
     # Use Streamlit Lottie for Buffer Animation
     # '''
-    morphed_video = open('4920.mp4', 'rb')
-    video_bytes = morphed_video.read()
 
     with row2_2:
-      st.video(video_bytes)
+      st.video(morphed_video['bytes'])
 
 
 if __name__ == '__main__':
