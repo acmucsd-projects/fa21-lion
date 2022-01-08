@@ -1,5 +1,5 @@
 {
-    "python.defaultInterpreterPath": "./backend/emv/bin/python3.7",
+    "python.defaultInterpreterPath": "./backend/env/bin/python3.7",
     "python.analysis.extraPaths": [
         "./backend/ml/stylegan2-ada"
     ]
