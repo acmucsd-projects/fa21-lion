@@ -1,5 +1,7 @@
 models/
 src/.ipynb_checkpoints/
+src/predict/stylegan2-ada/
+src/predict/network-snapshot.pkl
 input/celeba/
 input/fferlito_cat_faces/
 input/larxel_cat_faces/
