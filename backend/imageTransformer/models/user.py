@@ -24,11 +24,11 @@ class User:
         # Verify user exists
         found_user = users.find_one({USER_DOCUMENT_KEYS.USERNAME: username})
         if not found_user:
-            return 404, 'User does not exist'
+            return 404, 'User does not exist', {}
 
         # Verify user's account password
         if not pbkdf2_sha256.verify(password, found_user.get(USER_DOCUMENT_KEYS.PASSWORD_HASH)):
-            return 401, 'Password provided is incorrect'
+            return 401, 'Password provided is incorrect', {}
 
         # Generate access tokens
         access_token = create_access_token(identity=username)

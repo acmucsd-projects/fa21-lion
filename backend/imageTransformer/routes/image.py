@@ -58,9 +58,9 @@ def transform_image():
         return jsonify({'msg': f'Transformation failed for the image'}), 500
 
     # Save file in mongo (#TODO file will be deleted later periodically)
-    mongo.save_file(f'unlinked-{transformed_filepath}.mp4', open(transformed_filepath, 'rb'))
+    mongo.save_file(f'unlinked-{transformed_filepath}', open(transformed_filepath, 'rb'))
     
     # Delete temporary file
     os.remove(transformed_filepath)
 
-    return mongo.send_file(f'unlinked-{transformed_filepath}.mp4')
+    return mongo.send_file(f'unlinked-{transformed_filepath}')

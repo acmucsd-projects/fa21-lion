@@ -11,7 +11,7 @@ def transformImage(image) -> Dict:
     headers = {}
     payload = {}
     files = [
-        ('image', (image.name, open('./05000.png', 'rb'), 'image/png'))
+        ('image', (image.name, image.read(), image.type))
     ]
     response = requests.request("POST", f'{BASE_URL}{ROUTES.TRANSFORM}', headers=headers, data=payload, files=files)
 
@@ -20,5 +20,4 @@ def transformImage(image) -> Dict:
         'format': response.headers['Content-Type']
     }
     
-    print(video['format'])
     return video

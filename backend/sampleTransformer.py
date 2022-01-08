@@ -1,6 +1,4 @@
 # TODO Remove this mock transformer before merging
-
-import os
 import shutil
 import time
 
