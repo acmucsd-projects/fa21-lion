@@ -80,9 +80,21 @@ All logs, metrics, results, samples, and model weight files are kept on my (Vinc
 
 ## Difficulties ❌
 
-  There were a number of difficulties. Our objective of converting human faces to cat faces (ideally with an additional argument specifying how much to morph the human face) proved to be difficult. This task is not paired image translation. Morphing the structure of the human face and incorporating cat elements where appropriate is more so geometric transfiguration. Other difficulties included the traditional GAN issues such as instability, oscillation (lack of convergence), failure to learn, and learning static images to fool the discriminator. Our difficulties also entailed long training runs and experiment organization. 
+  There were a number of difficulties. Our objective of converting human faces to cat faces (ideally with an additional argument specifying how much to morph the human face) proved to be difficult. This task is not paired image translation. Morphing the structure of the human face and incorporating cat elements where appropriate is more so geometric transfiguration. Other difficulties included the traditional GAN issues such as instability, oscillation (lack of convergence), failure to learn, and learning static images to fool the discriminator. Our difficulties also entailed long training runs and experiment organization. A few visual examples of our difficulties are listed below.
 
-This summary is non-exhaustive. More can be found in the presentation folder!
+
+| Sample Ground Truth for DCGAN | Generated Results for DCGAN |
+| :---------------------------: | :-------------------------: |
+| ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/dcgan/dcgan_ref.PNG?raw=true) | ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/dcgan/dcgan_end_result.PNG?raw=true) |
+
+**Note**: the ground truth people do not match the generated results people. However, for the purposes of this demonstration of the limitations of DCGAN, we display this table
+to help visualize the *general* effects of the DCGAN generator.
+
+Our DCGAN (generated results above) faced problems such as: mode collapse, weak generator, and training instability. As you can see from the image, the generator learned
+how to simply apply a black "mask" over the ground truth person.
+
+
+This is non-exhaustive. More can be found in the presentation folder and in my (Vincent) wandb project!
 
 ## Author Info 📚
 
