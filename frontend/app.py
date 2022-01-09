@@ -1,4 +1,5 @@
 # Core Packages
+from os import access
 import streamlit as st
 from PIL import Image
 import numpy as np
@@ -51,6 +52,8 @@ def main():
   # Variables for the flags and the the files
   isConfirmed = False
   isPictureUploaded = False
+  isSaved = False
+  isSuccessfulLogin = False
   morphed_video = None
   uploaded_file = None
 
@@ -71,32 +74,63 @@ def main():
   
   # If Picture Uploaded, display picture and button to morph the picture.
   if isPictureUploaded:
-    row2_spacer5, row2_3, row2_spacer8 = st.columns([1,1,1])
+    row2_spacer5, row2_3, row2_spacer8 = st.columns([0.78,1,1])
     print(uploaded_file)
     img = Image.open(uploaded_file)
     row2_3.image(img)
-    row2_spacer6, row2_spacer9, row2_spacer11, row2_spacer13, row2_spacer14, row2_spacer17, row2_4, row2_spacer18, row2_spacer15, row2_spacer16, row2_spacer12, row2_spacer6, row2_spacer7 = st.columns([1,1,1,1,1,1,1,1,1,1,1,1,1])
+    row2_spacer6, row2_spacer9, row2_4, row2_spacer6, row2_spacer7 = st.columns([1,1,1,1,1])
     # Display the button to morph the picture
-    if row2_4.button('Morph It!'):
+    optionSelected = row2_4.multiselect('Do you want to morph this picture?', ('Morph it!', 'Let me rethink.'))
+    if optionSelected == ['Morph it!']:
       # If button pressed, set flag to true to run GAN
       isConfirmed = True
-
+      
   # If button pressed to morph, run GAN and display the video.
+  row2_spacer3, row2_2, row2_spacer4 = st.columns((2, 3.2, 2))
   if isConfirmed:
-    row2_spacer3, row2_2, row2_spacer4 = st.columns((2, 3.2, 2))
-    # '''
     # This is where the uploaded_file is sent to the GAN and the GAN runs it to return the video.
-
     morphed_video = api.transformImage(uploaded_file)
+    row2_2.video(morphed_video['bytes'])
+    saveSelected = row2_2.multiselect('Do you want to save this picture and video?', ('Sure!', 'Let me rethink.'))
+    if saveSelected == ['Sure!']:
+      # If button pressed, set flag to true to run GAN
+      isSaved = True
 
-    # !!! DELETE NEXT LINE - ONLY FOR REFERENCE !!!
+  # If User wants to save the video
+  if isSaved:
+    row2_2.markdown("**You can save your image and morphed video by logging in.** You can register by going to the Register Page in the Left Menu.")
 
-    # Use Streamlit Lottie for Buffer Animation
-    # '''
+    # Following variables take in the username and the password.
+    username = row2_2.text_input("User Name")
+    password = row2_2.text_input("Password",type='password')
 
-    with row2_2:
-      st.video(morphed_video['bytes'])
+    # If you click the button, it tries to first log in and then save
+    if row2_2.button('Login and Save'):
+      # If length of password is less than 8 characters, it does not start process of log in
+      # and returns incorrect immediately.
+      if len(password) < 8:
+        row2_2.markdown("Username/Password is incorrect. Please register if you haven't yet.")
+      # TODO: (Aman) Do your login magic underneath
+      # result, accessKey = check(username, password)
+      # DELETE LINE WITH RESULT AND ACCESSKEY ASSIGNED
+      else:
+        result, accessKey = [True, '234483u3u3']
+        # If result is true, we have successfully logged in.
+        if result:
+          # TODO: (Aman) Do your saving stuff here
+          # saveVideo = saveVideo(morphed_video, accessKey) #return True/False
+          # DELETE NEXT LINE
 
+          saveVideo = True
+          # If saveVideo returns true, then video has been saved successfully.
+          if saveVideo:
+            row2_2.markdown("Video Saved Successfully")
+          else:
+            row2_2.markdown("Video cannot be saved. Please try again later.")
+
+        # If result is false, we return that username/password is incorrect
+        else:
+          row2_2.markdown("Username/Password is incorrect. Please register if you haven't yet.")
 
 if __name__ == '__main__':
 	main()
