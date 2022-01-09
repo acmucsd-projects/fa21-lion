@@ -136,10 +136,7 @@ for j in range(STEPS):
 
   repeat = FREEZE_STEPS if j==0 or j==(STEPS-1) else 1
 
-  if (j < (STEPS / 3)):
-    skip_frames = skipped_frames_by_step_num(j, STEPS * 2 / 3, SKIPPED_FRAME_CAP)
-  else:
-    skip_frames = skipped_frames_by_step_num(j, STEPS * 2 / 3, SKIPPED_FRAME_CAP * 2)
+  kip_frames = skipped_frames_by_step_num(j, STEPS, SKIPPED_FRAME_CAP)
    
   if (repeat == 1 and skip_frames > 0):
     if (j % skip_frames == 0):

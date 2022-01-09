@@ -11,7 +11,7 @@ PREDICT_PATH = "./predict.py"
 #predict script
 NETWORK = "./weights/network-snapshot.pkl"
 STEPS = 2000
-SKIPPED_FRAME_CAP = 20
+SKIPPED_FRAME_CAP = 30
 FPS = 30
 FREEZE_STEPS = 30
 NUM_STEPS = 1000
