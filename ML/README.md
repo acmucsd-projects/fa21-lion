@@ -83,16 +83,45 @@ All logs, metrics, results, samples, and model weight files are kept on my (Vinc
   There were a number of difficulties. Our objective of converting human faces to cat faces (ideally with an additional argument specifying how much to morph the human face) proved to be difficult. This task is not paired image translation. Morphing the structure of the human face and incorporating cat elements where appropriate is more so geometric transfiguration. Other difficulties included the traditional GAN issues such as instability, oscillation (lack of convergence), failure to learn, and learning static images to fool the discriminator. Our difficulties also entailed long training runs and experiment organization. A few visual examples of our difficulties are listed below.
 
 
-| Sample Ground Truth for DCGAN | Generated Results for DCGAN |
-| :---------------------------: | :-------------------------: |
+| Sample Ground Truths | Generated Results |
+| :------------------: | :---------------: |
 | ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/dcgan/dcgan_ref.PNG?raw=true) | ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/dcgan/dcgan_end_result.PNG?raw=true) |
 
-**Note**: the ground truth people do not match the generated results people. However, for the purposes of this demonstration of the limitations of DCGAN, we display this table
+_Figure 1. Images from DCGAN Experiments._
+
+
+**Note**: the ground truth people do not match the generated results people. However, for the purposes of demonstrating the limitations of the DCGAN, we display this table
 to help visualize the *general* effects of the DCGAN generator.
 
-Our DCGAN (generated results above) faced problems such as: mode collapse, weak generator, and training instability. As you can see from the image, the generator learned
+Our DCGAN (generated results above) faced problems such as, but not limited to: mode collapse, weak generator, and training instability. From the image, the generator learned
 how to simply apply a black "mask" over the ground truth person.
 
+
+| Sample Ground Truths | No L1 Regularization Results | Medium L1 Regularization Results | Heavy L1 Regularization Results |
+| :------------------: | :--------------------------: | :------------------------------: | :-----------------------------: |
+| ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/dcgan/dcgan_ref.PNG?raw=true) | ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/patchgan/patchgan_noreg_result.PNG?raw=true) | ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/patchgan/patchgan_reg_result.PNG?raw=true) | ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/patchgan/patchgan_heavyreg_result.PNG?raw=true) |
+
+_Figure 2. Images from PatchGAN Experiments._
+
+
+Though the PatchGAN had success in training stability compared to the DCGAN, its generated images were subjected to mode collapse as seen in the "PatchGAN No L1 Regularization Results" category. The generator produced pixelated "masks" of the human faces. Though this did have greater granularity compared to the simple black blotch-like "masks" of the DCGAN, it still lacked the necessary complexity to accomplish our multi-stage task. Additionally, increasing the intensity of the regularization loss led to more coherent images at the expense of diversity. 
+
+
+| Sample Ground Truths | Results |
+| :------------------: | :-----: |
+| ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/dcgan/dcgan_ref.PNG?raw=true) | ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/cyclegan/cyclegan_end_result1.PNG?raw=true) |
+
+_Figure 3. Images from CycleGAN Experiments._
+
+
+The CycleGAN was where we first experienced moderate success (Eureka!). As a GAN that revolves around cycle-consistency image generation for unpaired images, it has proved adequate success in translating human faces to cat faces. Its limitations lied in its lack of complexity. And thus, it generated medium-quality images dotted with artifacts (though still cat-like). The largest limitation of this network was that it failed to capture the _how_. How did it create the cat images? Can we manipulate it to some extent? How can we incorporate a slider functionality? These questions went unanswerable with the CycleGAN architecture. And that's where the StyleGAN came in!
+
+
+| Training Results | Sample Ground Truths | Results |
+| :--------------: | :------------------: | :-----: |
+| ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/trained_stylegan2ada_morph/training_generated_results.png?raw=true) | | |
+
+_Figure 4. Images from StyleGAN2-ADA Experiments._
 
 This is non-exhaustive. More can be found in the presentation folder and in my (Vincent) wandb project!
 
