@@ -139,9 +139,9 @@ This is non-exhaustive. More can be found in the presentation and src folders, a
 
 ## Author Info 📚
 
-- [Vincent Tu](https://github.com/alckasoc)
-- [Arth Shukla](https://github.com/arth-shukla)
-- [Edward Yang](https://www.linkedin.com/in/~edwardyang/) (Advisor)
+- Vincent Tu:            [LinkedIn](https://www.linkedin.com/in/vincent-tu-422b18208/) | [GitHub](https://github.com/alckasoc)
+- Arth Shukla:           [LinkedIn](https://www.linkedin.com/in/arth-shukla/)          | [GitHub](https://github.com/arth-shukla)
+- Edward Yang (Advisor): [LinkedIn](https://www.linkedin.com/in/~edwardyang/)          | [GitHub](https://github.com/edwardyang12)
 
 ## Thank you! 😀
 
