@@ -1,6 +1,7 @@
 # Useful resources
 - API Documentation: [here](https://documenter.getpostman.com/view/18831621/UVRGF4Pi)
 - Backend Plan Doc: [here](https://docs.google.com/document/d/1xH0LKhaQSp-aiNjJPbK_I6Zl_LmEJh32MQlc6zEkXpk/edit)
+- Postman collection: [here](./ImageTransformation.postman_collection.json)
 # How to run the backend locally?
 
 ## For MacOS

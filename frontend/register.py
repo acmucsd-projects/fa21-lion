@@ -1,5 +1,5 @@
 import streamlit as st
-
+import api
 def app():
   st.title("Create New Account")
 
@@ -19,7 +19,7 @@ def app():
       # if needed (eg. username is unique but failed to save in DB)
       # REMOVE NEXT LINE
 
-      result = True
+      result = api.register(new_user, new_password)
 
       if result:
         st.success("You have successfully created an Account")

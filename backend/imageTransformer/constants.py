@@ -2,18 +2,19 @@ class SESSION_KEYS:
     CURRENT_USERNAME = 'currentUsername'
 
 class USER_DOCUMENT_KEYS:
-    FULLNAME ='fullname'
     USERNAME = 'username'
     PASSWORD_HASH = 'passwordHash'
     IMAGES = 'images'
+    VIDEOS = 'videos'
     FILENAME = 'filename'
-    TRANSFORMED = 'transformed'
+    TRANSFORMED_FILENAME = 'transformed'
 
 class REQUEST_KEYS:
     USERNAME = 'username'
-    FULLNAME = 'fullname'
     PASSWORD = 'password'
+    VIDEO = 'video'
     IMAGE = 'image'
 
 TRANSFORMED_FILE_PREFIX = 'transformed-'
-ALLOWED_EXTENSIONS = ['png', 'jpg', 'jpeg', 'gif']
+ALLOWED_IMAGE_EXTENSIONS = ['png', 'jpg', 'jpeg', 'gif']
+ALLOWED_VIDEO_EXTENSIONS = ['mp4', 'mov']

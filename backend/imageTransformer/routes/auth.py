@@ -3,7 +3,7 @@ from imageTransformer.models import User
 
 from imageTransformer.app import app
 from imageTransformer.constants import REQUEST_KEYS
-from imageTransformer.routes.helpers import getMissingArgs
+from imageTransformer.helpers import getMissingArgs
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -35,13 +35,12 @@ def register():
         return jsonify({'msg': f'Expected json content type but found {request.headers.get("Content-Type")}'}), 400
     
     # Verify required arguments
-    missingArgs = getMissingArgs(request.json, [REQUEST_KEYS.FULLNAME, REQUEST_KEYS.USERNAME, REQUEST_KEYS.PASSWORD])
+    missingArgs = getMissingArgs(request.json, [REQUEST_KEYS.USERNAME, REQUEST_KEYS.PASSWORD])
     if missingArgs:
         return jsonify({'msg': f'Missing required argument(s): {", ".join(missingArgs)}'}), 400
     
-    fullname = request.json.get(REQUEST_KEYS.FULLNAME)
     username = request.json.get(REQUEST_KEYS.USERNAME)
     password = request.json.get(REQUEST_KEYS.PASSWORD)
 
-    status, message = User.register(fullname, username, password)
+    status, message = User.register(username, password)
     return jsonify({'msg': message}), status
