@@ -127,4 +127,4 @@ def app():
 
         # If result is false, we return that username/password is incorrect
         else:
-          row2_2.success("Username/Password is incorrect. Please register if you haven't yet.")
+          row2_2.error("Username/Password is incorrect. Please register if you haven't yet.")
