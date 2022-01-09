@@ -1,2 +1,2 @@
 run-frontend:
-	streamlit run app.py
+	streamlit run router.py
