@@ -1,5 +1,10 @@
 ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/img/banner.png?raw=true)
 
+![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/img/training_generated_results1.gif?raw=true)
+
+_Figure 1. Training results from StyleGAN2-ADA Experiments and Woman-to-cat morph._
+
+
 [![Python](https://img.shields.io/badge/Python-3.7-002c5c?logo=python&labelColor=002c5c)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/Pytorch-1.10-ffffff?logo=pytorch&labelColor=ffffff)](https://pytorch.org/)
 [![Kaggle](https://img.shields.io/badge/Kaggle-ffffff?logo=kaggle&labelColor=ffffff)](https://www.kaggle.com/)
@@ -87,7 +92,7 @@ All logs, metrics, results, samples, and model weight files are kept on my (Vinc
 | :------------------: | :---------------: |
 | ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/dcgan/dcgan_ref.PNG?raw=true) | ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/dcgan/dcgan_end_result.PNG?raw=true) |
 
-_Figure 1. Images from DCGAN Experiments._
+_Figure 2. Images from DCGAN Experiments._
 
 
 **Note**: the ground truth people do not match the generated results people. However, for the purposes of demonstrating the limitations of the DCGAN, we display this table
@@ -101,7 +106,7 @@ how to simply apply a black "mask" over the ground truth person.
 | :------------------: | :--------------------------: | :------------------------------: | :-----------------------------: |
 | ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/dcgan/dcgan_ref.PNG?raw=true) | ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/patchgan/patchgan_noreg_result.PNG?raw=true) | ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/patchgan/patchgan_reg_result.PNG?raw=true) | ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/patchgan/patchgan_heavyreg_result.PNG?raw=true) |
 
-_Figure 2. Images from PatchGAN Experiments._
+_Figure 3. Images from PatchGAN Experiments._
 
 
 Though the PatchGAN had success in training stability compared to the DCGAN, its generated images were subjected to mode collapse as seen in the "PatchGAN No L1 Regularization Results" category. The generator produced pixelated "masks" of the human faces. Though this did have greater granularity compared to the simple black blotch-like "masks" of the DCGAN, it still lacked the necessary complexity to accomplish our multi-stage task. Additionally, increasing the intensity of the regularization loss led to more coherent images at the expense of diversity. 
@@ -111,24 +116,24 @@ Though the PatchGAN had success in training stability compared to the DCGAN, its
 | :------------------: | :-----: |
 | ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/dcgan/dcgan_ref.PNG?raw=true) | ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/cyclegan/cyclegan_end_result1.PNG?raw=true) |
 
-_Figure 3. Images from CycleGAN Experiments._
+_Figure 4. Images from CycleGAN Experiments._
 
 
 The CycleGAN was where we first experienced moderate success (Eureka!). As a GAN that revolves around cycle-consistency image generation for unpaired images, it has proved adequate success in translating human faces to cat faces. Its limitations lied in its lack of complexity. And thus, it generated medium-quality images dotted with artifacts (though still cat-like). The largest limitation of this network was that it failed to capture the _how_. How did it create the cat images? Can we manipulate it to some extent? How can we incorporate a slider functionality? These questions went unanswerable with the CycleGAN architecture. And that's where the StyleGAN came in!
 
 ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/trained_stylegan2ada_morph/training_generated_results.png?raw=true)
 
-_Figure 4. Training results from StyleGAN2-ADA Experiments._
+_Figure 5. Training results from StyleGAN2-ADA Experiments._
 
 
-| Ground Truth | Result | Morph |
-| :----------: | :----: | :---: |
-| ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/trained_stylegan2ada_morph/man.PNG?raw=true) | ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/trained_stylegan2ada_morph/man_cat.PNG?raw=true) | ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/trained_stylegan2ada_morph/human_to_bestcat_as_target.gif?raw=true) |
+| Ground Truth Human | Ground Truth Cat | Result | Morph |
+| :----------------: | :--------------: | :----: | :---: |
+| ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/trained_stylegan2ada_morph/man.PNG?raw=true) | ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/trained_stylegan2ada_morph/bestcat.jpg?raw=true) | ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/trained_stylegan2ada_morph/man_cat.PNG?raw=true) | ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/results/trained_stylegan2ada_morph/human_to_bestcat_as_target.gif?raw=true) |
 
-_Figure 5. Images from StyleGAN2-ADA Experiments._
+_Figure 6. Images from StyleGAN2-ADA Experiments._
 
 
-From Figure 4, our training results were remarkable. Though there still exists artifacts, the quality of the images were exponentially better. Furthermore, the StyleGAN2-ADA architecture allowed us to capture the complexity of our task as well as control the styles behind morphing. This allowed for implementing a _scale_ when morphing and manipulating the image. In Figure 5, our ground truth is a man and our result is a cat-human hybrid. Special engineering went into producing this unique example. We took our trained StyleGAN2-ADA and fed in the "Ground Truth" image and a sample cat image. We, then, created an mp4 illustrating the man morphing into the cat. Naturally, the midpoint of this image would be the cat-human hybrid. We simply split the mp4 in half and preserved and elongated the first half of it (the morph from man to cat-human hybrid). In general, this set of experiments has demonstrated: the ability to generate high-quality images, to control style, to capture the complexity of our task, and to perform unpaired image transfiguration. 
+From Figure 4, our training results were remarkable. Though there still exists artifacts, the quality of the images were exponentially better. Furthermore, the StyleGAN2-ADA architecture allowed us to capture the complexity of our task as well as control the styles behind morphing. This allowed for implementing a _scale_ when morphing and manipulating the image. In Figure 5, our ground truth is a man and our result is a cat-human hybrid. Special engineering went into producing this unique example. We took our trained StyleGAN2-ADA and fed in the "Ground Truth Human" image and the "Ground Truth Cat" image. We, then, created an mp4 illustrating the man morphing into the cat. Naturally, the midpoint of this image would be the cat-human hybrid. We simply split the mp4 in half and preserved and elongated the first half of it (the morph from man to cat-human hybrid). In general, this set of experiments has demonstrated: the ability to generate high-quality images, to control style, to capture the complexity of our task, and to perform unpaired image transfiguration. 
 
 This is non-exhaustive. More can be found in the presentation and src folders, and in my (Vincent) wandb project!
 
