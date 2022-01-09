@@ -93,7 +93,7 @@ def app():
       # If button pressed, set flag to true to run GAN
       isSaved = True
 
-  # If User wants to save the video
+# If User wants to save the video
   if isSaved:
     row2_2.markdown("**You can save your image and morphed video by logging in.** You can register by going to the Register Page in the Left Menu.")
 
@@ -106,7 +106,7 @@ def app():
       # If length of password is less than 8 characters, it does not start process of log in
       # and returns incorrect immediately.
       if len(password) < 8:
-        row2_2.markdown("Username/Password is incorrect. Please register if you haven't yet.")
+        row2_2.error("Username/Password is incorrect. Please register if you haven't yet.")
       # TODO: (Aman) Do your login magic underneath
       # result, accessKey = check(username, password)
       # DELETE LINE WITH RESULT AND ACCESSKEY ASSIGNED
@@ -121,13 +121,10 @@ def app():
           saveVideo = True
           # If saveVideo returns true, then video has been saved successfully.
           if saveVideo:
-            row2_2.markdown("Video Saved Successfully")
+            row2_2.success("Video Saved Successfully")
           else:
-            row2_2.markdown("Video cannot be saved. Please try again later.")
+            row2_2.error("Video cannot be saved. Please try again later.")
 
         # If result is false, we return that username/password is incorrect
         else:
-          row2_2.markdown("Username/Password is incorrect. Please register if you haven't yet.")
-
-  # if __name__ == '__main__':
-  # 	main()
+          row2_2.success("Username/Password is incorrect. Please register if you haven't yet.")
