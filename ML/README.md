@@ -1,4 +1,4 @@
-![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/img/banner.png?raw=true)
+<img src="https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/img/banner.png?raw=true" width="3000">
 
 ![](https://github.com/acmucsd-projects/fa21-lion/blob/ML-setup/ML/img/training_generated_results1.gif?raw=true)
 
