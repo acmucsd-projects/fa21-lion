@@ -12,7 +12,6 @@ from imageTransformer.helpers import getMissingArgs, saveTempFileAndCleanup, get
 from sampleTransformer import transform
 
 @app.route('/videos/<video_name>',methods=['GET'])
-@jwt_required()
 def get_video(video_name):
     filename = video_name
     return mongo.send_file(filename)
