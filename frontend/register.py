@@ -23,6 +23,6 @@ def app():
 
       if result:
         st.success("You have successfully created an Account")
-        st.info("Use the Left Sidebar to create a new cat video view your existing videos")
+        st.info("Use the Left Sidebar to Create a New Cat Video or View Your Existing Videos")
       else:
         st.error("Username already exists.")
