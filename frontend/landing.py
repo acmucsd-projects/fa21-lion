@@ -16,10 +16,10 @@ def app():
     return image
 
   # Title and Centering It
-  st.title("Team Lion")
+  st.title("Wanna Turn Into a Cat?")
   title_alignment="""
   <style>
-  #team-lion {
+  #wanna-turn-into-a-cat {
     text-align: center
   }
   </style>
@@ -29,13 +29,10 @@ def app():
   # Setting Two Columns for Description of the App
   row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns((.1, 2, .2, 1, .1))
 
-  row0_1.title('Wanna Turn Into a Cat?')
-
-  with row0_2:
-      st.write('')
+  row0_1.subheader('Controlling the Latent Space is All You Need')
 
   row0_2.subheader(
-      'Team Lion: Controlling the Latent Space is All You Need')
+      'By Team Lion - Aman, Arth, Gaurav, and Vincent.')
 
   row1_spacer1, row1_1, row1_spacer2 = st.columns((.1, 3.2, .1))
 
