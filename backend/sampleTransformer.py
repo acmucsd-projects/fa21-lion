@@ -9,6 +9,6 @@ def filler(str, req):
 
 def transform(image) -> Tuple[bool, object]:
     temp_filepath = 'temp/finalVideo.mp4'
-    shutil.copyfile('sample/4920.mp4', temp_filepath)
+    shutil.copyfile('sample/sample1.mp4', temp_filepath)
     # time.sleep(5) # Added to imitate the real behaviour
     return True, temp_filepath
