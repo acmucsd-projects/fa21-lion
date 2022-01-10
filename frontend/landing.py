@@ -40,7 +40,7 @@ def app():
   row1_spacer1, row1_1, row1_spacer2 = st.columns((.1, 3.2, .1))
 
   with row1_1:
-      st.markdown("Hey there! Welcome to Team Lion's Morph Ya Face Into Cat App. ADD ANY EXPLANATION HERE!      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur euismod mi vulputate vehicula. Donec venenatis laoreet leo, eu viverra quam scelerisque nec. Sed ut placerat nisi. Duis gravida malesuada ultrices. Nam id metus vitae nisl mattis gravida. Nulla orci nibh, sollicitudin accumsan cursus vel, suscipit nec ante. Nulla facilisis orci massa, eget sagittis diam consequat vel. Morbi eu diam accumsan, tincidunt massa eget, pulvinar arcu. Donec dolor justo, tincidunt nec sapien eu, dapibus malesuada augue. Mauris odio ipsum, bibendum ac maximus sed, lacinia in nunc. Suspendisse potenti. Duis sit amet placerat lectus, a tristique turpis. Integer enim eros, rutrum vel ultrices in, fringilla interdum eros.")
+      st.markdown("Hey there! Welcome to Team Lion's Morph Ya Face Into Cat App. You can upload an image into this app and we will perform geometric facial transfirguration to generate a video of your face getting transformed into a cat! ")
       st.markdown(
           "**To begin, please upload a picture of a human face below.** 👇")
 
